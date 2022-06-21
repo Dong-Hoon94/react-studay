@@ -3,11 +3,11 @@ function Section(props) {
 	console.log(props); // const props= { carinfo: [{id: 1, name: '벤츠', year: 2009}] }
 	return (
 		<div>
-			{props.carinfo.map((car) => (
+			{props.person.map((users) => (
 				<li>
-					<span>번호:{car.id}</span>
-					<span>차종:{car.name}</span>
-					<span>연식:{car.year}</span>
+					<span>이름:{users.name}</span>
+					<span>국적:{users.country}</span>
+					<span>출생연도:{users.year}</span>
 				</li>
 			))}
 		</div>
