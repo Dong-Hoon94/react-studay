@@ -1,15 +1,28 @@
-import Footer from './Footer';
-import Section from './Section';
-import Header from './Header';
+import { useState } from 'react';
+import Children from './components/Children';
 
 function App() {
-	const users = [{ name: '이동훈님', country: '한국', year: 1994 }];
-	const carinfo = [{ model: '벤츠', yd: 2009, price: '6000만원~' }];
+	const [count, setCount] = useState(0); //초기 상태값
+	//           변경하는 함수(Setter function)
+	//set + 상태 담은 변수(여기서는 count) = setCount
+	const onIncrease = (e) => {
+		setCount(count + 1);
+	};
+
+	const onDiscrease = (e) => {
+		setCount(count - 1);
+	};
 
 	return (
+		//스테이트는 컴포넌트 자신이 가지고 있는 데이터
+		//스테이트 변경될 우려가 있는 데이터
+
 		<div>
-			<Header />
-			<Section person={users} /> <Footer car={carinfo} />{' '}
+			<Children
+				count={count}
+				onIncrease={onIncrease}
+				onDiscrease={onDiscrease}
+			/>
 		</div>
 	);
 }
